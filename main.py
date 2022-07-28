@@ -75,12 +75,13 @@ def display():
     cur = connection.cursor()
     
 
-    cur.execute('''CREATE TABLE RecentSearches(
+    cur.execute('''CREATE TABLE IF NOT EXISTS RecentSearches(
                           ID INT PRIMARY KEY NOT NULL,
                           SONGNAME TEXT NOT NULL,
                           ARTISTNAME TEXT NOT NULL
                           );''')
-
+                          
+    #sqlite3.IntegrityError: NOT NULL constraint failed: RecentSearches.ID
     cur.execute("INSERT INTO RecentSearches (SONGNAME) VALUES('{}');".format(song_title))
     cur.execute("INSERT INTO RecentSearches (ARTISTNAME) VALUES('{}');".format(song_subtitle))
 
