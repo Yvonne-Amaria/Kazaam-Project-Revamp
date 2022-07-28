@@ -1,5 +1,6 @@
 import os
-
+import glob
+import sqlite3
 from ShazamAPI import Shazam
 from flask import Flask, render_template, request
 from flask_dropzone import Dropzone
@@ -17,12 +18,16 @@ def testKazaam():
 
 
 # gets the name of an audio file and prints out song info
-def kazaam(filename):
-    mp3_file_content_to_recognize = open('uploads/Time Alone.mp3', 'rb').read()
+def kazaam():
+    #get name of latest file in uploads to be recognized
+    list_of_files = glob.glob('uploads/*') # * means all if need specific format then *.csv
+    latest_file = max(list_of_files, key=os.path.getctime)
+
+    mp3_file_content_to_recognize = open(f'{latest_file}', 'rb').read()
 
     shazam = Shazam(mp3_file_content_to_recognize)
     recognize_generator = shazam.recognizeSong()
-    print(next(recognize_generator))  # current offset & shazam response to recognize requests
+    return next(recognize_generator)  # current offset & shazam response to recognize requests
 
 
 
@@ -49,7 +54,7 @@ def upload():
 @app.route('/display', methods=['POST', 'GET'])
 def display():
 
-    generator = testKazaam()
+    generator = kazaam()
 
     song_title = generator[1]['track']['title']
  
@@ -64,6 +69,23 @@ def display():
     artist_photo = generator[1]['track']['images']['coverart']
 
     list = generator[1]['track']['sections'][1]['text']
+
+    #create database and insert values
+    connection = sqlite3.connect("site.db")
+    cur = connection.cursor()
+    
+
+    cur.execute('''CREATE TABLE RecentSearches(
+                          ID INT PRIMARY KEY NOT NULL,
+                          SONGNAME TEXT NOT NULL,
+                          ARTISTNAME TEXT NOT NULL
+                          );''')
+
+    cur.execute("INSERT INTO RecentSearches (SONGNAME) VALUES('{}');".format(song_title))
+    cur.execute("INSERT INTO RecentSearches (ARTISTNAME) VALUES('{}');".format(song_subtitle))
+
+    connection.commit()
+
     return render_template('display.html', Artist_Title = song_subtitle, Song_Title = song_title, list = list, len = len(list), artist_photo = artist_photo)
 
 
