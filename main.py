@@ -6,12 +6,19 @@ from flask_dropzone import Dropzone
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 def testKazaam():
-    mp3_file_content_to_recognize = open('Time Alone.mp3', 'rb').read()
+    mp3_file_content_to_recognize = open('uploads/Time Alone.mp3', 'rb').read()
 
     shazam = Shazam(mp3_file_content_to_recognize)
     recognize_generator = shazam.recognizeSong()
     print(next(recognize_generator))  # current offset & shazam response to recognize requests
 
+# gets the name of an audio file and prints out song info
+def kazaam(filename):
+    mp3_file_content_to_recognize = open('uploads/Time Alone.mp3', 'rb').read()
+
+    shazam = Shazam(mp3_file_content_to_recognize)
+    recognize_generator = shazam.recognizeSong()
+    print(next(recognize_generator))  # current offset & shazam response to recognize requests
 
 app = Flask(__name__)
 app.config.update(
