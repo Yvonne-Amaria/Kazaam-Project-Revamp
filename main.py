@@ -76,14 +76,14 @@ def display():
     
 
     cur.execute('''CREATE TABLE IF NOT EXISTS RecentSearches(
-                          ID INT PRIMARY KEY NOT NULL,
-                          SONGNAME TEXT NOT NULL,
-                          ARTISTNAME TEXT NOT NULL
+                          ID INT PRIMARY KEY,
+                          SONGNAME TEXT,
+                          ARTISTNAME TEXT
                           );''')
-                          
-    #sqlite3.IntegrityError: NOT NULL constraint failed: RecentSearches.ID
-    cur.execute("INSERT INTO RecentSearches (SONGNAME) VALUES('{}');".format(song_title))
-    cur.execute("INSERT INTO RecentSearches (ARTISTNAME) VALUES('{}');".format(song_subtitle))
+
+    
+    cur.execute("INSERT INTO RecentSearches (SONGNAME) VALUES('{}, {}');".format(song_title, song_subtitle))
+    #cur.execute("INSERT INTO RecentSearches (ARTISTNAME) VALUES('{}');".format(song_subtitle))
 
     connection.commit()
 
