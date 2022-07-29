@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='display.css') }}">
     <meta charset="UTF-8">
     <title>Kazaam</title>
 </head>
+
 <body>
-    
-  <h1> Kazaam </h1>
+    <div class=" d-flex mt-2"> <a href="/">
+            <button class="btn1 btn-dark">Home</button>
+        </a>
+    </div>
+    <h1 class="center"> Kazaam </h1>
+    {{ Artist_Title }}
+    <img src={{artist_photo}} alt="Italian Trulli">
+    <br>
+    {{ Song_Title }}
+    <br>
+    <h2 class="center"> Song Lyrics </h2>
+    <!-- Display Lyrics--> {%for i in range(0, len)%} <ul>{{list[i]}}</ul> {%endfor%}
 
-  {{ Artist_Title }}
-
-  <img src={{artist_photo}} alt="Italian Trulli">
-
-  <br>
-
-  {{ Song_Title }}
-
-  <br>
-
-  <h2> Song Lyrics </h2>
-  
-  
-  <!-- Display Lyrics-->
-  {%for i in range(0, len)%}
-    <ul>{{list[i]}}</ul>
-  {%endfor%}
-  
-
+    <h2> Five Most Recently Kazaamed Songs </h2>
+    <!-- Display Lyrics--> {%for i in range(0, len_recent)%} <ol>{{recent_five[i][0]}}</ol> {%endfor%}
 </body>
+
 </html>

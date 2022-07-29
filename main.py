@@ -64,8 +64,6 @@ def display():
     '''for item in generator[1]['track']['sections'][1]['text']:
       print(item)'''
     
-    print(generator[1]['track']['images']) 
-    
     artist_photo = generator[1]['track']['images']['coverart']
 
     list = generator[1]['track']['sections'][1]['text']
@@ -83,11 +81,15 @@ def display():
 
     
     cur.execute("INSERT INTO RecentSearches (SONGNAME) VALUES('{}, {}');".format(song_title, song_subtitle))
-    #cur.execute("INSERT INTO RecentSearches (ARTISTNAME) VALUES('{}');".format(song_subtitle))
 
     connection.commit()
 
-    return render_template('display.html', Artist_Title = song_subtitle, Song_Title = song_title, list = list, len = len(list), artist_photo = artist_photo)
+    cur.execute("SELECT SONGNAME FROM RecentSearches ORDER BY ID DESC LIMIT 5")
+    list_of_recent = cur.fetchall()
+    recent_five = list_of_recent
+    print(recent_five)
+    return render_template('display.html', Artist_Title = song_subtitle, Song_Title = song_title, list = list, len = len(list), 
+        artist_photo = artist_photo, recent_five = recent_five, len_recent = len(recent_five))
 
 
 if __name__ == '__main__':
