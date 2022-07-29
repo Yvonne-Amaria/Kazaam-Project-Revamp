@@ -53,7 +53,7 @@ def upload():
 
 @app.route('/display', methods=['POST', 'GET'])
 def display():
-
+    
     generator = kazaam()
 
     song_title = generator[1]['track']['title']
