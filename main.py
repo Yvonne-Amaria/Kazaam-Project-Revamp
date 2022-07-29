@@ -87,7 +87,12 @@ def display():
     cur.execute("SELECT SONGNAME FROM RecentSearches ORDER BY ID DESC LIMIT 5")
     list_of_recent = cur.fetchall()
     recent_five = list_of_recent
-    print(recent_five)
+    
+    #delete all the files in the upload folder after the information is gained
+    dir = 'uploads/'
+    for f in os.listdir(dir):
+        os.remove(os.path.join(dir, f))
+
     return render_template('display.html', Artist_Title = song_subtitle, Song_Title = song_title, list = list, len = len(list), 
         artist_photo = artist_photo, recent_five = recent_five, len_recent = len(recent_five))
 
