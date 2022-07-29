@@ -46,7 +46,6 @@ selenium==3.141.0
 ShazamAPI==0.0.2
 simple-websocket==0.2.0
 six==1.11.0
-SpeechRecognition==3.8.1
 SQLAlchemy==1.4.19
 ssh-import-id==5.7
 termcolor==1.1.0
