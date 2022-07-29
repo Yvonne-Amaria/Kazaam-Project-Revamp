@@ -3,7 +3,6 @@ certifi==2018.1.18
 chardet==3.0.4
 click==8.0.1
 configparser==5.0.2
-cryptography==2.1.4
 dataclasses==0.8
 dnspython==2.1.0
 ffmpeg==1.4
@@ -65,5 +64,4 @@ urllib3==1.22
 webdriver-manager==3.4.2
 Werkzeug==2.0.1
 wsproto==1.0.0
-WTForms==2.3.3
 zipp==3.4.1
