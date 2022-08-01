@@ -49,6 +49,10 @@ ul{
   background-size: cover;
 }
 
+.display-background{
+  background-image: linear-gradient(grey, orange, rgb(177, 51, 177), rgb(228, 131, 131))
+}
+
 .glowKazaam {
   font-size: 80px;
   color: #fff;
@@ -83,6 +87,25 @@ ul{
   }
   to {
     text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+
+.glowKazaam2 {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glowKazaam2 1s ease-in-out infinite alternate;
+  -moz-animation: glowKazaam2 1s ease-in-out infinite alternate;
+  animation: glowKazaam2 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glowKazaam2 {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #24111b, 0 0 40px #24111b, 0 0 50px #24111b, 0 0 60px #24111b, 0 0 70px #24111b;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #70646ad0, 0 0 40px #70646ad0, 0 0 50px #70646ad0, 0 0 60px #70646ad0, 0 0 70px #70646ad0, 0 0 80px #70646ad0;
   }
 }
 

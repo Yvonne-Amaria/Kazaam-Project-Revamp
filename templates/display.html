@@ -7,12 +7,12 @@
     <title>Kazaam</title>
 </head>
 
-<body>
+<body class="display-background">
     <div class=" d-flex mt-2"> <a href="/">
             <button class="btn1 btn-dark">Home</button>
         </a>
     </div>
-    <h1 class="center"> Kazaam </h1>
+    <h1 class="center glowKazaam2"> Kazaam </h1>
     <img class="image" src={{artist_photo}} alt="Coverart" class="pic" />
     <b>
         <p class="center"> Artist Title:
@@ -26,7 +26,7 @@
         <br>
         <br>
         <br>
-        <h2 class="center"> Song Lyrics</h2>
+        <h2 class="center"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Song Lyrics</h2>
         <!-- Display Lyrics--> {%for i in range(0, len)%} <ul>{{list[i]}}</ul> {%endfor%}
     </div>
     <h2> Five Most Recently Kazaamed Songs </h2>
