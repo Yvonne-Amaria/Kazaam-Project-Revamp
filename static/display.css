@@ -1,8 +1,9 @@
-img{
-
-    max-width:10%;
+.image{
     height:auto;
-
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 15%;
 }
 
 ul{
@@ -13,3 +14,26 @@ ul{
 .center{
     text-align: center;
 }
+
+.left{
+    text-align: left;
+}
+
+.right{
+    text-align: right;
+}
+
+.pic {
+    margin:+5% 0 0;
+    border: 3px solid black;
+    float:left;
+}
+
+.info {
+  margin:+5% 10px;
+  float:left;
+}
+
+
+
+
