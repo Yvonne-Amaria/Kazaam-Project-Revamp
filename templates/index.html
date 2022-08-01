@@ -6,17 +6,25 @@
     <meta charset="UTF-8">
     <title>Flask-File Drag Drop System</title>
     {{ dropzone.load_css() }}
-    {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 400px;') }}
+    {{ dropzone.style('border: 2px dashed #0087F7; margin: 10%; min-height: 200px;') }}
 </head>
 
-<body>
-    <h1 class="center"> Kazaam </h1>
+<body class="home-background">
+    <h1 class="center glowKazaam"> Kazaam </h1>
+    <br>
+    <br>
+    <div class="box">
+        <b class="glowExplain">
+        Record a playing song with your local recording app and upload. <br><br>
+        And don't worry, your recording will be deleted as soon as we recognize your song. 
+        </b>
+    </div>
     <div"> </div>
     {{ dropzone.create(action='upload') }}
     {{ dropzone.load_js() }}
     {{ dropzone.config() }}
     <div class=" d-flex mt-2"> <a href="/display">
-            <button class="btn1 btn-dark">Recognize</button>
+            <button class="btn btn-primary">Recognize</button>
         </a>
     </div>
 </body>
