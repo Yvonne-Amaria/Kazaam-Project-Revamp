@@ -53,12 +53,15 @@ def upload():
 
 @app.route('/display', methods=['POST', 'GET'])
 def display():
-    
-    generator = kazaam()
+    try:
+        generator = kazaam()
 
-    song_title = generator[1]['track']['title']
- 
-    song_subtitle = generator[1]['track']['subtitle']
+        song_title = generator[1]['track']['title']
+    
+        song_subtitle = generator[1]['track']['subtitle']
+    except:
+        message = "Song was not recognized. Please try again"
+        return render_template('index.html', message=message)
     
     #print list of tuples for song lyrics
     '''for item in generator[1]['track']['sections'][1]['text']:
