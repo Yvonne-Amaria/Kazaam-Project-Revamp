@@ -82,8 +82,8 @@ def display():
                           ARTISTNAME TEXT
                           );''')
 
-    
-    cur.execute("INSERT INTO RecentSearches (SONGNAME) VALUES('{}, {}');".format(song_title, song_subtitle))
+    song_data = song_title + ' by ' + song_subtitle    
+    cur.execute("INSERT INTO RecentSearches (SONGNAME) VALUES(?)", (song_data,))
 
     connection.commit()
 
