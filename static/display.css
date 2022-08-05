@@ -83,10 +83,10 @@ ul{
 
 @-webkit-keyframes glowExplain {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #533644, 0 0 40px #926f80, 0 0 50px #29151f, 0 0 60px #350c21, 0 0 70px #38031e;
   }
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    text-shadow: 0 0 20px #fff, 0 0 30px #c5a3b4, 0 0 40px #3a2730, 0 0 50px #dbc1ce, 0 0 60px #c29aae, 0 0 70px #e7b3cd, 0 0 80px #f10bd3;
   }
 }
 
