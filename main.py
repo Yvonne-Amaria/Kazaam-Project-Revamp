@@ -66,10 +66,17 @@ def display():
     #print list of tuples for song lyrics
     '''for item in generator[1]['track']['sections'][1]['text']:
       print(item)'''
-    
-    artist_photo = generator[1]['track']['images']['coverart']
+    try:
+        song_lyrics = 'Song lyrics'
+        list = generator[1]['track']['sections'][1]['text']
+    except:
+        list = []
+        song_lyrics = ''
 
-    list = generator[1]['track']['sections'][1]['text']
+    try:
+        artist_photo = generator[1]['track']['images']['coverart']
+    except:
+        artist_photo = ''
 
     #create database and insert values
     connection = sqlite3.connect("site.db")
@@ -97,7 +104,7 @@ def display():
         os.remove(os.path.join(dir, f))
 
     return render_template('display.html', Artist_Title = song_subtitle, Song_Title = song_title, list = list, len = len(list), 
-        artist_photo = artist_photo, recent_five = recent_five, len_recent = len(recent_five))
+        artist_photo = artist_photo, recent_five = recent_five, len_recent = len(recent_five), song_lyrics=song_lyrics)
 
 
 if __name__ == '__main__':
